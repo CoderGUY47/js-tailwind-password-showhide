@@ -18,6 +18,7 @@
 
 ## 📸 Demo Preview
 > Live Demo : https://coderguy47.github.io/js-tailwind-password-showhide/
+> ![Project Preview](js-tailwind-password-showhide.png)
 
 ## 🛠️ Installation & Usage
 ১. রিপোজিটরি ক্লোন করুন:
