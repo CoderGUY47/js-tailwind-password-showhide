@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Password - S.M. Hasan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* আপনার ইমেজের কালার প্যালেট অনুযায়ী কাস্টম ব্যাকগ্রাউন্ড */
+        body {
+            background-color: #1e1f1e; /* */
+        }
+        .pwd-container {
+            background-color: #111625; /* */
+            box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.5); /* */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+
+    <div class="pwd-container max-w-sm w-full p-8 rounded-2xl">
+        <label class="block text-sm font-medium text-gray-400 mb-3 tracking-wide">Enter Secure Password</label>
+        
+        <div class="relative">
+            <input id="password" type="password" placeholder="Password..." 
+                   class="w-full bg-transparent border-b-2 border-gray-600 text-blue-400 text-lg py-2 outline-none focus:border-blue-500 transition-all duration-300">
+            
+            <div class="absolute right-0 top-2 flex items-center space-x-3">
+                <i id="lockIcon" class="fas fa-lock text-gray-500 transition-colors duration-500"></i>
+                <button id="toggleBtn" class="focus:outline-none">
+                    <i id="eyeIcon" class="fas fa-eye-slash text-blue-500 cursor-pointer text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // আপনার ইমেজের লজিক অনুযায়ী এলিমেন্টগুলো সিলেক্ট করা
+        const passwordInput = document.getElementById('password');
+        const toggleBtn = document.getElementById('toggleBtn');
+        const eyeIcon = document.getElementById('eyeIcon');
+        const lockIcon = document.getElementById('lockIcon');
+
+        toggleBtn.addEventListener('click', () => {
+            // পাসওয়ার্ড টাইপ পরিবর্তন করা
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                // আইকন পরিবর্তন
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+                
+                // ইমেজের মতো লকের রঙ পরিবর্তন (৫০০ মিলি-সেকেন্ড পর)
+                setTimeout(() => {
+                    lockIcon.style.color = "#111625";
+                }, 500);
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+                
+                // রঙ আগের অবস্থায় ফিরিয়ে আনা
+                lockIcon.style.color = "#dbdbdb";
+            }
+        });
+    </script>
+</body>
+</html>
